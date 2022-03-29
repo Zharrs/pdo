@@ -1,0 +1,43 @@
+<?php
+require "connect.php";
+$pdo = new \PDO(DSN, USER, PASS);
+
+$Nom = $_POST['New_Nom'];
+$Prenom = $_POST['Prenom'];
+$Age = $_POST['Age'];
+
+$query = "INSERT INTO story (Nom, Prenom, Age) VALUES ('$Nom', '$Prenom', '$Age')";
+
+$pdo->exec($query);
+?>
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form method="post">
+        <div>
+                <label  for="new_Nom">Nom :</label>
+              <input  type="text"  id="New_Nom"  name="New_Nom">
+            </div>
+            <div>
+              <label  for="Prenom">Prenom :</label>
+              <input  type="text"  id="Prenom"  name="Prenom">
+            </div>
+            <div>
+              <label  for="Age">Age :</label>
+              <input  type="int"  id="Age"  name="Age">
+            </div>
+            <div  class="button">
+              <button  type="submit">Envoyer votre message</button>
+            </div>
+        </div>
+        </form>
+</body>
+</html>
